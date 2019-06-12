@@ -1,0 +1,66 @@
+html {
+    background:url("vai.png");
+    background-size: cover;
+    }
+  
+  
+ 
+  h1{
+    width: 60%;
+    margin-left: 20%;
+    color:rgb(252, 249, 249) ;
+    text-align: center;
+    background-color: rgba(116, 114, 114, 0.13);
+    font-size: 4em;
+  
+  }
+  b{
+    background-color: rgba(116, 114, 114, 0.13);
+  }
+  i{
+    border-style: solid;
+    width: 20%;
+    margin-left: 5%;
+    border-color: black;
+    font-size: 0.3em;
+    color: rgb(247, 243, 4);
+  }
+  img {
+    margin-inline-start: 100%;
+    margin-top: -20%;
+    text-align: end;
+  }
+  #login {
+    border-style: solid;
+    width: 60%;
+    margin-left: 20%;
+    border-color: transparent;
+      text-align: center; 
+      margin-top: 1%;
+    }
+  
+    form{
+      /* color: black; */
+      font-size: 3em;
+      color: rgb(245, 245, 248);
+      font-size: 5em;
+    }
+  
+    #btn_entrar{
+      border-style: solid;
+      width: 20%;
+      margin-left: 1%;
+      border-color: black;
+      text-align: center;
+      background-color: transparent;
+      font-size: 0.5em;
+      color: rgb(245, 240, 240);
+      
+      
+    }
+  
+    input{
+    font-size: 60%;
+    color: rgb(12, 11, 11);
+      background-color: transparent;
+    }

@@ -1,0 +1,70 @@
+ html {
+  background:url("cadastro.png") no-repeat center center fixed;
+  background-size: cover;
+  /* -webkit-background-size: cover;  */
+  }
+
+
+
+h1{
+  width: 60%;
+  margin-left: 20%;
+  color: rgb(255, 85, 6) ;
+  text-align: center;
+  font-size: 4em;
+
+}
+
+img {
+  margin-inline-start: 80%;
+  margin-top: 5%;
+  text-align: end;
+}
+
+#texto {
+  border-style: solid;
+  width: 60%;
+  margin-left: 20%;
+  border-color: transparent;
+    text-align: center; 
+    margin-top: 1%;
+  }
+
+  #form_cadastro{
+    /* color: black; */
+    font-size: 3em;
+    background-color: transparent;
+  }
+
+  button{
+    border-style: solid;
+    width: 20%;
+    margin-left: 5%;
+    border-color: black;
+    text-align: center;
+    font-size: 0.5em;
+    color: black;
+  }
+  b{
+    border-style: solid;
+    background-color: rgba(12, 12, 12, 0.575);
+    width: 20%;
+    margin-left: 5%;
+    border-color: black;
+    font-size: 0.5em;
+    color: rgb(243, 247, 4);
+  }
+  b:hover{
+    background-color: rgba(192, 14, 14, 0.521);
+  }
+button:hover{
+  background-color: rgba(192, 14, 14, 0.521);
+}
+  input{
+  font-size: 60%;
+    background-color: rgba(255, 255, 255, 0.288);
+  }
+
+  ::placeholder{
+    color: rgb(13, 14, 13);
+  }

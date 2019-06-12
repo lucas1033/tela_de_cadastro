@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Entrar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Login dos Vingadores    </h1>
+    <div id="login">
+        <form id="form_login" method="post" onsubmit="return entrar()">
+           <b> Email: </b> <br> <input type="text" name="login" style="background-color: rgba(116, 114, 114, 0.13)" autofocus> <br>
+            <b> Senha: </b> <br> <input type="password" name="senha"> <br>
+            <button id="btn_entrar"><b> Entrar </b></button>
+            <a href="cadastro.html"><i> Não possui cadastro? </i></a>
+        </form>
+        <img src="aguarde2.gif" id="img_aguarde" style="display: none;">
+
+        <div id="div_erro" style="background-color: rgba(244, 243, 247, 0.568); color: rgb(14, 1, 1); display: none;">
+            Usuário e/ou senha inválidos!
+        </div>
+    </div>
+</body>
+</html>
+<script>
+      for (contador = 0; contador<20; contador++) {
+        var palavra = prompt('Qual o vingador mais forte?(sem modinha)');
+
+        if (palavra == 'thor') {
+            break; // isso MATA o loop (no caso, o for)
+        }  else{
+            alert('Resposta errada')
+        }
+    }
+verificarAutenticacao();
+
+function verificarAutenticacao() {
+    if (sessionStorage.usuario_bandtec != undefined) {
+        window.location.href = 'visao.html';
+    }
+}
+
+function entrar() {
+    aguardar();
+    var formulario = new URLSearchParams(new FormData(form_login));
+    fetch("/usuarios/entrar", {
+        method: "POST",
+        body: formulario
+    }).then(function (response) {
+        
+        if (response.ok) {
+
+            response.json().then(function (resposta) {
+
+                sessionStorage.usuario_bandtec = resposta.nome;
+                verificarAutenticacao();
+
+            });
+        } else {
+
+            console.log('Erro de login!');
+            finalizar_aguardar();
+        }
+    });
+
+    return false;
+}
+
+function aguardar() {
+    btn_entrar.disabled = true;
+    img_aguarde.style.display='block';
+    div_erro.style.display='none';
+}
+
+function finalizar_aguardar() {
+    btn_entrar.disabled = false;
+    img_aguarde.style.display='none';
+    div_erro.style.display='block';
+}
+</script>

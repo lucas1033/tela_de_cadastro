@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Página com exemplo de Cadastro de usuário</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <h1>Avengers!!</h1>
+    <div id="texto">
+        <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+            <input type="text" placeholder="Nome" name="nome" required minlength="4">
+            <br>
+            <input type="text" placeholder="Vingador preferido" name="vingador" required minlength="4">
+            <br>
+            <input type="email" placeholder="Email" name="login" required minlength="4">
+            <br>
+            <input type="password" placeholder="senha" name="senha">
+            <br>
+            <button id="btn_entrar">Cadastrar</button>
+            <a href="index.html"><b>Já possui cadastro?</b></a>
+        </form>
+    </div>
+    <img src="aguarde.gif" id="img_aguarde" style="display: none;" width="100px">
+
+    <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
+        Erro no cadastro
+    </div>
+
+</body>
+
+</html>
+<script>
+     for (contador = 0; contador<20; contador++) {
+        var palavra = prompt('Qual o melhor vingador?(sem modinha)');
+
+        if (palavra == 'homem de ferro') {
+            break; // isso MATA o loop (no caso, o for)
+        }  else{
+            alert('Resposta errada')
+        }
+    }
+
+    function cadastrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+
+            if (response.ok) {
+
+                window.location.href = 'index.html';
+
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        img_aguarde.style.display = 'block';
+        div_erro.style.display = 'none';
+    }
+
+    function finalizar_aguardar() {
+        btn_entrar.disabled = false;
+        img_aguarde.style.display = 'none';
+        div_erro.style.display = 'block';
+    }
+
+</script>
